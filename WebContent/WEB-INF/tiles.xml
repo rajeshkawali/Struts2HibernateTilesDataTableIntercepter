@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+  <definition name="baseLayout" template="/tiles/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/tiles/header.jsp"/>
+      <put-attribute name="menu"   value="/tiles/menu.jsp"/>
+      <put-attribute name="body"   value="/tiles/body.jsp"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+  </definition>
+    
+  <definition name="welcome" extends="baseLayout">
+      <put-attribute name="title"  value="Welcome to Tiles"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+      <put-attribute name="body"   value="/welcome.jsp"/>      
+  </definition>
+  
+  <definition name="listStudents" extends="baseLayout">
+      <put-attribute name="title"  value="List of Student"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+      <put-attribute name="body"   value="/listStudents.jsp"/>      
+  </definition>
+  <definition name="index" extends="baseLayout">
+      <put-attribute name="title"  value="Main Page"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+      <put-attribute name="body"   value="/index.jsp"/>      
+  </definition>
+  <definition name="register" extends="baseLayout">
+      <put-attribute name="title"  value="Registeration"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+      <put-attribute name="body"   value="/register.jsp"/>      
+  </definition>
+  
+</tiles-definitions>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="Application-I18N" />
+	<package name="student" extends="struts-default" namespace="/">
+
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<action name="studAddress">
+			<result name="success" type="tiles">studAddress</result>
+		</action>
+
+		<action name="studentaddress" method="execute" class="com.controller.StudentAddressAction">
+		
+			<result name="success" type="tiles">welcome</result>
+			<result name="input" type="tiles">studAddress</result>
+		</action>
+		<action name="studentAjax">
+			<result name="success" type="tiles">studentAjax</result>
+		</action>
+	</package>
+</struts>

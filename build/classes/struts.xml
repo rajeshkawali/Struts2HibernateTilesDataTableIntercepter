@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources"	value="Application-I18N"/>
+		<package name="default" extends="struts-default" namespace="/">
+		
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<interceptors>
+			<interceptor name="myOwn" class="com.interceptor.LoginStudentInterceptor"></interceptor>
+			<interceptor-stack name="loggingStack" >
+				<interceptor-ref name="myOwn" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<action name="login" class="com.controller.StudentLoginAction">
+			<interceptor-ref name="loggingStack"></interceptor-ref>
+			<result name="success" type="tiles">welcome</result>
+			<result name="input" type="tiles">login</result>
+		</action>
+
+        <action name="addStudent-use">
+			<result name="success" type="tiles">register</result>
+		</action>
+		
+		<action name="addStudent" method="execute" class="com.controller.StudentAction">
+			<result name="success" type="tiles">welcome</result>
+			<result name="input" type="tiles">register</result>
+		</action>
+
+		<action name="listStudents" class="com.controller.StudentAction"
+			method="listStudents">
+			<result name="success" type="tiles">listStudents</result>
+		</action>
+
+		<action name="welcome">
+			<result name="success" type="tiles">welcome</result>
+		</action>
+		
+		
+		<action name="delete" method="delete" class="com.controller.StudentAction">
+			<result name="success" type="tiles">welcome</result>
+		</action> 
+		
+		<!-- <action name="select" method="select" class="com.controller.StudentAction">
+			<result name="success" type="tiles">register</result>
+		</action> 
+		
+		<action name="update" method="update" class="com.controller.StudentAction">
+			<result name="success" type="tiles">welcome</result>
+		</action>  -->
+
+ 
+	</package>
+   
+    <include file="struts-students.xml"></include>
+ 
+</struts>

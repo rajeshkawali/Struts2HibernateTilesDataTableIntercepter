@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+  
+  <definition name="login" extends="baseLayout">
+      <put-attribute name="title"  value="Login Page"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+      <put-attribute name="body"   value="/login.jsp"/>      
+  </definition>
+  <definition name="studAddress" extends="baseLayout">
+      <put-attribute name="title"  value="Login Page"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+      <put-attribute name="body"   value="/studentAddress.jsp"/>      
+  </definition>
+   <definition name="studentAjax" extends="baseLayout">
+      <put-attribute name="title"  value="Ajax Page"/>
+      <put-attribute name="footer"   value="/tiles/footer.jsp"/>
+      <put-attribute name="body"   value="/studentAjax.jsp"/>      
+  </definition>
+  
+</tiles-definitions>
